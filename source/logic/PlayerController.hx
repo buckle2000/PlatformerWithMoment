@@ -15,12 +15,14 @@ class PlayerController extends FlxBasic{
     var impg: Float;
     var impa: Float;
     var impj: Float;
+	var remainJumps: Int;
+	var maxJumps: Int;
     var keymap: PlayerControl;
 
     public function new(_playerbody: Body, _levelbody: Body,
                         control : PlayerControl = null,
-                        impulse_ground : Float = 500, impulse_air : Float = 0,
-                        impulse_jump : Float = 100) {
+                        impulse_ground : Float = 500, impulse_air : Float = 200,
+                        impulse_jump : Float = 200) {
 		super();
         playerbody = _playerbody;
         levelbody = _levelbody;
@@ -30,6 +32,7 @@ class PlayerController extends FlxBasic{
         if (control == null) keymap = new PlayerControl([LEFT, A], [RIGHT, D], [UP, W]);
         else
             keymap = control;
+		maxJumps = 2;
     }
 
     override public function update(dt: Float) {
@@ -52,9 +55,12 @@ class PlayerController extends FlxBasic{
         else
             totalx = 0;
         impulse.x = totalx * dt;
-
-        if (onGround && FlxG.keys.anyPressed(keymap.b_jump))
+		if (onGround)
+			remainJumps = maxJumps;
+        if (FlxG.keys.anyJustPressed(keymap.b_jump) && remainJumps>0 ) {
             impulse.y = -impj;
+			remainJumps--;
+		}
 
         playerbody.applyImpulse(impulse);
     }

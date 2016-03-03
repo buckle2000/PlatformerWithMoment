@@ -13,6 +13,6 @@ class Player extends FlxNapeSprite {
         makeGraphic(18, 26, fillcolor);
         createRectangularBody(16, 25);
         body.allowRotation = true;
-        setBodyMaterial(0.5, 0.00);
+        setBodyMaterial(0.5, 1);
     }
 }
