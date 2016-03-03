@@ -36,7 +36,7 @@ class PlayerController extends FlxBasic{
         var impulse = new Vec2();
         //onGround = playerbody.contacts(levelbody);
         //
-        onGround = playerbody.on(levelbody);
+        onGround = playerbody.onTop();
 #if debug
         FlxG.watch.addQuick("On Ground", onGround);
 #end
