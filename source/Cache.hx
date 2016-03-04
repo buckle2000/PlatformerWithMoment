@@ -1,5 +1,6 @@
 package;
 
+using logic.PhyUtil;
 import flixel.addons.nape.FlxNapeTilemap;
 import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
@@ -44,6 +45,12 @@ class Cache {
 		tilemap.placeCustomPolygon([4], vertices);
 		vertices[2] = Vec2.get(16, 16);
 		tilemap.placeCustomPolygon([5], vertices);
+		vertices[0] = Vec2.get(0, 0.5);
+		vertices[1] = Vec2.get(8, 0);
+		vertices[2] = Vec2.get(16, 0.5);
+		vertices.push(Vec2.get(16, 4));
+		vertices.push(Vec2.get(0, 4));
+		tilemap.setOneWay(6, vertices, new Material(0,0,0,1,0));
 		
         levels.set(name, tilemap);
         return tilemap;
