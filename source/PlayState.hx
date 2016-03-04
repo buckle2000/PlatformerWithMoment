@@ -38,6 +38,7 @@ class PlayState extends FlxState {
 		initSpace();
         FlxG.camera.bgColor = FlxColor.WHITE;
         level = Cache.loadLevel("default", "assets/data/testmap.csv");
+		level.body.setShapeMaterials(Constants.platformMaterial);
         add(level);
 
         var player: FlxNapeSprite;

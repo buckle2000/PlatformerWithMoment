@@ -21,7 +21,7 @@ class Player extends FlxNapeSprite {
 		setBody(new Body(BodyType.DYNAMIC, Vec2.weak(X, Y)));
 		var a_box = new Polygon(Polygon.box(16, 25));
 		body.shapes.add(a_box);
-        setBodyMaterial(0.5, 0.001,0.005,1);
+        body.setShapeMaterials(Constants.playerMaterial);
         body.allowRotation = true;
     }
 }
