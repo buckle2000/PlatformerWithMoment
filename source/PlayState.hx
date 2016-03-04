@@ -6,7 +6,11 @@ import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
 import gameobj.Player;
+import logic.PhyUtil;
 import logic.PlayerController;
+import nape.callbacks.CbType;
+import nape.callbacks.InteractionType;
+import nape.callbacks.PreListener;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -14,13 +18,27 @@ import logic.PlayerController;
 class PlayState extends FlxState {
     var allPlayers: FlxGroup = new FlxGroup();
     var level: FlxNapeTilemap;
-
-    override public function create(): Void {
-        Cache.init();
+	
+	function initSpace():Void {		
         FlxNapeSpace.init();
         FlxNapeSpace.space.gravity.setxy(0, 2000);
+		Constants.oneWayType = new CbType();
+		
+		FlxNapeSpace.space.listeners.add(new PreListener(
+            InteractionType.COLLISION,
+            Constants.oneWayType,
+            CbType.ANY_BODY,
+            PhyUtil.oneWayHandler,
+			0, true
+        ));	
+	}
+	
+    override public function create(): Void {
+        Cache.init();
+		initSpace();
         FlxG.camera.bgColor = FlxColor.WHITE;
         level = Cache.loadLevel("default", "assets/data/testmap.csv");
+		level.body.setShapeMaterials(Constants.platformMaterial);
         add(level);
 
         var player: FlxNapeSprite;
