@@ -18,13 +18,13 @@ class PhyUtil {
         return false;
     }
 
-    public static function onTop(thing: Body, ?surface: Body): Bool {
+    public static function onTop(thing: Body, ?surface: Body, ?error: Float = 0.80): Bool {
         for (contact in thing.arbiters) {
             if ((surface == null || contact.body1 == thing || contact.body2 == thing) && contact.type == ArbiterType.COLLISION) {
                 var normal: Float = contact.collisionArbiter.normal.angle;
                 FlxG.watch.addQuick("c",normal);
                 if (contact.body1 == thing) normal = normal - Math.PI;
-                if (Math.abs(normal + Math.PI / 2) < 0.35)
+                if (Math.abs(normal + Math.PI / 2) < error)
                     return true;
             }
         }

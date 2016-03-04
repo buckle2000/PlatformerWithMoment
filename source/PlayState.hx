@@ -1,6 +1,5 @@
 package;
 
-import nape.phys.Material;
 import flixel.addons.nape.*;
 import flixel.FlxG;
 import flixel.FlxState;
@@ -22,7 +21,6 @@ class PlayState extends FlxState {
         FlxNapeSpace.space.gravity.setxy(0, 2000);
         FlxG.camera.bgColor = FlxColor.WHITE;
         level = Cache.loadLevel("default", "assets/data/testmap.csv");
-		level.body.setShapeMaterials(Material.ice());
         add(level);
 
         var player: FlxNapeSprite;

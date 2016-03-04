@@ -37,8 +37,6 @@ class PlayerController extends FlxBasic{
 
     override public function update(dt: Float) {
         var impulse = new Vec2();
-        //onGround = playerbody.contacts(levelbody);
-        //
         onGround = playerbody.onTop();
 #if debug
         FlxG.watch.addQuick("On Ground", onGround);
@@ -61,7 +59,6 @@ class PlayerController extends FlxBasic{
             impulse.y = -impj;
 			remainJumps--;
 		}
-
         playerbody.applyImpulse(impulse);
     }
 }
