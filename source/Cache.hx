@@ -18,7 +18,6 @@ class Cache {
      * Generic levels Array that can be used for cross-state stuff.
      * Example usage: Storing the levels of a platformer.
     */
-    public static inline var TILESIZE = 16;
     public static var tilegraphics: FlxGraphic;
 
     public static function init(): Void {
@@ -28,7 +27,7 @@ class Cache {
     public static function loadLevel(name: String, file: String): CustomNapeTilemap {
         if (levels.exists(name))
             return levels.get(name);
-        var tilemap = new CustomNapeTilemap(file, tilegraphics, TILESIZE);
+        var tilemap = new CustomNapeTilemap(file, tilegraphics, Constants.TILESIZE);
         levels.set(name, tilemap);
         return tilemap;
     }

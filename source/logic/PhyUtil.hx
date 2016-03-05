@@ -51,6 +51,17 @@ class PhyUtil {
         tilemap.body.space = FlxNapeSpace.space;
     }
 	
+	public static function setOneWayLong(tilemap: FlxNapeTilemap, startpos: FlxPoint, length: Int, ?mat: Material)
+	{
+		tilemap.body.space = null;
+		var vertices = [Vec2.get(0,-0.1), Vec2.get(Constants.TILESIZE*length,-0.1), Vec2.get(Constants.TILESIZE*length,Constants.TILESIZE),Vec2.get(0,Constants.TILESIZE)];
+        var polygon = new Polygon(vertices, mat);
+		polygon.translate(Vec2.get(startpos.x, startpos.y));
+		polygon.cbTypes.add(Constants.oneWayType);
+		tilemap.body.shapes.add(polygon);
+        tilemap.body.space = FlxNapeSpace.space;
+	}
+	
 	public static function oneWayHandler(cb:PreCallback):PreFlag {
         var colArb = cb.arbiter.collisionArbiter;
  
