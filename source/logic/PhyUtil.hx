@@ -60,12 +60,12 @@ class PhyUtil {
 		polygon.cbTypes.add(Constants.oneWayType);
 		tilemap.body.shapes.add(polygon);
         tilemap.body.space = FlxNapeSpace.space;
-	}
+	}	
 	
 	public static function oneWayHandler(cb:PreCallback):PreFlag {
         var colArb = cb.arbiter.collisionArbiter;
  
-        if ((colArb.normal.y > 0) != cb.swapped) {
+        if ((colArb.normal.y >= 0) != cb.swapped) {
             return PreFlag.IGNORE;
         } else {
             return PreFlag.ACCEPT;

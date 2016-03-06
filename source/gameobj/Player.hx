@@ -24,4 +24,5 @@ class Player extends FlxNapeSprite {
         body.setShapeMaterials(Constants.playerMaterial);
         body.allowRotation = true;
     }
+	
 }

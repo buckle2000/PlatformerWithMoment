@@ -1,10 +1,13 @@
 package;
 
+using logic.MathUtil;
 import flixel.addons.nape.*;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
+import flixel.math.FlxPoint;
 import flixel.util.FlxColor;
+import gameobj.CustomNapeTilemap;
 import gameobj.Player;
 import logic.PhyUtil;
 import logic.PlayerController;
@@ -17,7 +20,7 @@ import nape.callbacks.PreListener;
  */
 class PlayState extends FlxState {
     var allPlayers: FlxGroup = new FlxGroup();
-    var level: FlxNapeTilemap;
+    var level: CustomNapeTilemap;
 	
 	function initSpace():Void {		
         FlxNapeSpace.init();
@@ -37,20 +40,27 @@ class PlayState extends FlxState {
         Cache.init();
 		initSpace();
         FlxG.camera.bgColor = FlxColor.WHITE;
-        level = Cache.loadLevel("default", "assets/data/testmap.csv");
+        level = Cache.loadLevel("default", "assets/data/testmap2.csv");
 		level.body.setShapeMaterials(Constants.platformMaterial);
+		level.spawnpoints.sortRandomly();
         add(level);
-
+		
+		var tempPoint:FlxPoint;
+		
         var player: FlxNapeSprite;
         var playerctrl: PlayerController;
-        player = new Player(100, 100, FlxColor.BLUE);
+        player = new Player(0, 0, FlxColor.BLUE);
         playerctrl = new PlayerController(player.body, level.body, new PlayerControl([LEFT], [RIGHT], [UP]));
+		tempPoint = level.spawnpoints[0];
+		player.setPosition(tempPoint.x,tempPoint.y-player.height*0.5);
         add(player);
         add(playerctrl);
 
-        player = new Player(100, 100, FlxColor.RED);
+        player = new Player(0, 0, FlxColor.RED);
         playerctrl = new PlayerController(player.body, level.body, new PlayerControl([A], [D], [W]));
-        add(player);
+		tempPoint = level.spawnpoints[1];
+		player.setPosition(tempPoint.x,tempPoint.y-player.height*0.5);
+		add(player);
         add(playerctrl);
     }
 
