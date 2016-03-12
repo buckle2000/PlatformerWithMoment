@@ -1,2 +1,1 @@
-带角动量的游戏
-学校作业
+This demo shows how to combine haxeflixel and nape together to make a funny (or not) platformer.
