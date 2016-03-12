@@ -1,4 +1,4 @@
-package;
+package states;
 
 using logic.MathUtil;
 import flixel.addons.nape.*;

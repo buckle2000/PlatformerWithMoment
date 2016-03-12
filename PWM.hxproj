@@ -8,31 +8,30 @@
     <movie fps="60" />
     <movie width="1024" />
     <movie height="768" />
-    <movie version="1" />
+    <movie version="0" />
     <movie minorVersion="0" />
     <movie platform="Lime" />
     <movie background="000000" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
+    <class path="C:\HaxeToolkit\haxe\lib\actuate\1,8,6" />
     <class path="C:\HaxeToolkit\haxe\lib\flixel\4,0,0" />
     <class path="C:\HaxeToolkit\haxe\lib\lime\2,8,3" />
-    <class path="C:\HaxeToolkit\haxe\lib\flixel-addons\2,0,0" />
-    <class path="C:\HaxeToolkit\haxe\lib\flixel-ui\2,0,0" />
-    <class path="C:\HaxeToolkit\haxe\lib\nape\2,0,19" />
     <class path="C:\HaxeToolkit\haxe\lib\openfl\3,5,3" />
-    <class path="C:\HaxeToolkit\haxe\lib\swf\2,1,6" />
+    <class path="C:\HaxeToolkit\haxe\lib\flixel-addons\2,0,0" />
+    <class path="C:\HaxeToolkit\haxe\lib\nape\2,0,19" />
     <class path="source" />
     <class path="export\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="flixel=4.0.0&#xA;lime=2.8.3&#xA;flixel-addons=2.0.0&#xA;flixel-ui=2.0.0&#xA;nape=2.0.19&#xA;openfl=3.5.3&#xA;swf=2.1.6&#xA;openfl-next&#xA;tools=2.8.3&#xA;no-compilation&#xA;openfl-flash&#xA;web&#xA;display" />
+    <option directives="actuate=1.8.6&#xA;flixel=4.0.0&#xA;lime=2.8.3&#xA;openfl=3.5.3&#xA;flixel-addons=2.0.0&#xA;nape=2.0.19&#xA;openfl-next&#xA;tools=2.8.3&#xA;FLX_NO_DEBUG&#xA;no-compilation&#xA;NAPE_RELEASE_BUILD&#xA;openfl-flash&#xA;web&#xA;display" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="False" />
-    <option additional="--macro openfl.Lib.includeExterns()&#xA;--macro flixel.system.macros.FlxDefines.run()&#xA;-swf-version 11.8&#xA;-debug " />
+    <option additional="--macro openfl.Lib.includeExterns()&#xA;--macro flixel.system.macros.FlxDefines.run()&#xA;-swf-version 11.8" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
