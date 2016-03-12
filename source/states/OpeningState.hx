@@ -1,29 +1,19 @@
 package states;
 
 import flixel.FlxState;
+import flixel.text.FlxText;
 
-class OpeningState extends FlxState
-{
+class OpeningState extends FlxState {
+    var text1: FlxText;
+    var text2: FlxText;
 
-	public function new() 
-	{
-		
-	}
-	
-	override public function create(): Void {
-		
-		
-	}
-	
-	override public function destroy(): Void {
-        FlxG.stage.removeChild(_sprite);
-		super.destroy();
-	}
-	
-	}
-	
-    override public function update(dt: Float): Void {
-        super.update(dt);
+    override public function create(): Void {
+        var a: Int;
+        a = 1 + 2 + (3 + 4);
+    }
+
+    override public function destroy(): Void {
+        super.destroy();
     }
 
 }
